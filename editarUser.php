@@ -71,26 +71,7 @@
                         <input type="text" class="form-control" id="email" name="email" placeholder="Ex.: fulano@email.com" value="<?php echo $emailUsuario ?>">
                     </div>
                 </div>
-                <div class="col-sm-1">
-                    <label for="name" class="control-label">Cor</label>
-                </div>
-                <div class="col-sm-10">
-                    <select class="form-select form-select-sm" name='id' aria-label=".form-select-sm example">
-                        <?php
-                        $id = $_GET["id"];
-                        // $colorsDisponiveis = $connection->query("SELECT id, name, hexRgb FROM colors WHERE id NOT IN (SELECT color_id FROM user_colors WHERE user_id = $idUsuario) ORDER BY name ASC");
-                        $colors = $connection->query("SELECT id,name FROM colors WHERE id NOT IN (SELECT color_id FROM user_colors where user_id = $id) ");
-
-                        // $colors = $connection->query("SELECT name,id FROM colors");
-                        foreach ($colors as $color) {
-                            $name = $color->name;
-                            $color_id = $color->id;
-                            echo "<option value='$color_id' id='id' name='id' style='background-color:$name;'>$name</option>";
-                        }
-
-                        ?>
-                    </select>
-                </div>
+               
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-2">
                         <button type="submit" class="btn btn-light">Editar.</button>
